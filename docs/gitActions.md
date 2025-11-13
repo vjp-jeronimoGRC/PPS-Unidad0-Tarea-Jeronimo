@@ -124,7 +124,7 @@ nav:
 ```
 # Creación del Workflow de Github Actions
 
-Denntro de .github/workflows/CreacionDocumentacion.yml ponemos lo siguiente:
+Dentro de .github/workflows/CreacionDocumentacion.yml ponemos lo siguiente:
 
 ```
 name: Generar Documentación MkDocs
@@ -133,7 +133,7 @@ on:
   push:
     branches: [ "main" ]
 
-jobs:
+Robs:
   build:
     runs-on: ubuntu-latest
 
@@ -159,3 +159,22 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./site
 ```
+Después por línea de comando ejecutamos lo siguiente:
+
+```
+pip install mkdocs mkdocs-material
+
+mkdocs build --strict
+
+mkdocs serve
+
+```
+Como resultado podremos visualizar lo siguiente:
+
+![imagen mkdocs](/home/kali/PPS-Unidad0-Tarea-Jeronimo/'Captura de pantalla 2025-11-13 231351.png')
+
+
+## gh-pages
+
+En Github nos vamos a Settings > Pages y seleccionamos Source: GitHub Actions
+
