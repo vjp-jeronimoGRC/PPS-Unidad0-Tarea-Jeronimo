@@ -103,3 +103,59 @@ touch conclusiones.md
 # Lo hacemos con el comando touch porque iremos rellenando los archivos conforme avancemos 
 
 ```
+## Creacion del mkdocs.yml
+nano mkdocs.yml
+# Contenido
+
+```
+site_name: "PPS - Unidad 0 - Tarea de TU_NOMBRE"
+
+theme:
+  name: material
+
+nav:
+  - Inicio: index.md
+  - Git: git.md
+  - GitHub Actions: gitActions.md
+  - GitHub Pages: gitPages.md
+  - Docker + NGINX: docker.md
+  - Conclusiones: conclusiones.md
+
+```
+# Creación del Workflow de Github Actions
+
+Denntro de .github/workflows/CreacionDocumentacion.yml ponemos lo siguiente:
+
+```
+name: Generar Documentación MkDocs
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install MkDocs
+        run: |
+          pip install mkdocs mkdocs-material
+
+      - name: Build Docs
+        run: mkdocs build --strict
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./site
+```
