@@ -18,7 +18,7 @@ docker run -d \
 http://localhost:8085
 ```
 
-![despliegue_docker](docker.png)
+[![despliegue_docker](docker.png)
 
-![docker inspect](inspect.png)
+[![docker inspect](inspect.png)
 
