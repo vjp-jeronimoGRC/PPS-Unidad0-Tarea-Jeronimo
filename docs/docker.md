@@ -18,7 +18,7 @@ docker run -d \
 http://localhost:8085
 ```
 
-![despliegue_docker](/PPS-Unidad0-Tarea-Jeronimo/docker.png)
+![despliegue_docker](./PPS-Unidad0-Tarea-Jeronimo/docker.png)
 
-![docker inspect](/PPS-Unidad0-Tarea-Jeronimo/inspect.png)
+![docker inspect](./PPS-Unidad0-Tarea-Jeronimo/inspect.png)
 
