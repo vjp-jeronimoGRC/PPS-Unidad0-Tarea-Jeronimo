@@ -89,11 +89,24 @@
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#2-workflow" class="nav-link">2. Workflow</a>
+            <li class="nav-item" data-bs-level="2"><a href="#workflow" class="nav-link">Workflow</a>
               <ul class="nav flex-column">
               </ul>
             </li>
             <li class="nav-item" data-bs-level="2"><a href="#verificacion" class="nav-link">Verificación</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#contenedor-docker-nginx" class="nav-link">Contenedor Docker NGINX</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#objetivo" class="nav-link">Objetivo</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#comando-utilizado" class="nav-link">Comando utilizado</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -261,7 +274,7 @@ mkdocs serve
 <p><img alt="imagen mkdocs" src="/home/kali/PPS-Unidad0-Tarea-Jeronimo/" title="Captura de pantalla 2025-11-13 231351.png" /></p>
 <h2 id="gh-pages">gh-pages</h2>
 <p>En Github nos vamos a Settings &gt; Pages y seleccionamos Source: GitHub Actions</p>
-<h2 id="2-workflow">2. Workflow</h2>
+<h2 id="workflow">Workflow</h2>
 <ul>
 <li>Archivo: <code>.github/workflows/CreacionDocumentacion.yml</code></li>
 <li>Configuración principal:</li>
@@ -292,8 +305,16 @@ jobs:
           publish_dir: ./site
 </code></pre>
 <h2 id="verificacion">Verificación</h2>
-<p>Ruta:</p>
-<pre><code>https://vjp-jeronimogrc.github.io/PPS-Unidad0-Tarea-Jeronimo/
+<p>Ruta: <code>https://vjp-jeronimogrc.github.io/PPS-Unidad0-Tarea-Jeronimo/</code></p>
+<h1 id="contenedor-docker-nginx">Contenedor Docker NGINX</h1>
+<h2 id="objetivo">Objetivo</h2>
+<p>Levantar un contenedor NGINX para servir la documentación generada por MkDocs desde la rama <code>gh-pages</code>. Aunque la web ya está publicada en GitHub Pages, este ejercicio permite practicar Docker y volúmenes bind mount.</p>
+<h2 id="comando-utilizado">Comando utilizado</h2>
+<pre><code class="language-bash">docker run -d \
+  --name PPSUnidad0-Tarea_Jeronimo \
+  -p 8085:80 \
+  -v $(pwd):/usr/share/nginx/html:ro \
+  nginx
 </code></pre></div>
             </div>
         </div>
