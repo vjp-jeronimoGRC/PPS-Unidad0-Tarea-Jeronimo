@@ -178,7 +178,7 @@ Como resultado podremos visualizar lo siguiente:
 
 En Github nos vamos a Settings > Pages y seleccionamos Source: GitHub Actions
 
-## 2. Workflow
+## Workflow
 - Archivo: `.github/workflows/CreacionDocumentacion.yml`
 - Configuración principal:
   - Se ejecuta en **push** a `main`.
@@ -210,9 +210,22 @@ jobs:
 ```
 ## Verificación
 
-Ruta:
+Ruta: `https://vjp-jeronimogrc.github.io/PPS-Unidad0-Tarea-Jeronimo/`
 
+
+# Contenedor Docker NGINX 
+
+## Objetivo
+Levantar un contenedor NGINX para servir la documentación generada por MkDocs desde la rama `gh-pages`. Aunque la web ya está publicada en GitHub Pages, este ejercicio permite practicar Docker y volúmenes bind mount.
+
+## Comando utilizado
+
+```bash
+docker run -d \
+  --name PPSUnidad0-Tarea_Jeronimo \
+  -p 8085:80 \
+  -v $(pwd):/usr/share/nginx/html:ro \
+  nginx
 ```
-https://vjp-jeronimogrc.github.io/PPS-Unidad0-Tarea-Jeronimo/
-```
+
 
