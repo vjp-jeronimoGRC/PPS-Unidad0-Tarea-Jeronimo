@@ -50,7 +50,7 @@
     </div>
 
     
-    <div id="toc-collapse" class="navbar-collapse collapse card bg-light">
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
         <ul class="nav flex-column">
             
             <li class="nav-item" data-bs-level="2"><a href="#creacion-de-carpetas" class="nav-link">Creación de carpetas</a>
@@ -86,6 +86,14 @@
             <li class="nav-item" data-bs-level="1"><a href="#creacion-del-workflow-de-github-actions" class="nav-link">Creación del Workflow de Github Actions</a>
               <ul class="nav flex-column">
             <li class="nav-item" data-bs-level="2"><a href="#gh-pages" class="nav-link">gh-pages</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#2-workflow" class="nav-link">2. Workflow</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#verificacion" class="nav-link">Verificación</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -252,7 +260,41 @@ mkdocs serve
 <p>Como resultado podremos visualizar lo siguiente:</p>
 <p><img alt="imagen mkdocs" src="/home/kali/PPS-Unidad0-Tarea-Jeronimo/" title="Captura de pantalla 2025-11-13 231351.png" /></p>
 <h2 id="gh-pages">gh-pages</h2>
-<p>En Github nos vamos a Settings &gt; Pages y seleccionamos Source: GitHub Actions</p></div>
+<p>En Github nos vamos a Settings &gt; Pages y seleccionamos Source: GitHub Actions</p>
+<h2 id="2-workflow">2. Workflow</h2>
+<ul>
+<li>Archivo: <code>.github/workflows/CreacionDocumentacion.yml</code></li>
+<li>Configuración principal:</li>
+<li>Se ejecuta en <strong>push</strong> a <code>main</code>.</li>
+<li>Instala Python 3.10 y MkDocs con el tema Material.</li>
+<li>Construye la documentación (<code>mkdocs build</code>).</li>
+<li>Publica los archivos generados en la rama <code>gh-pages</code> usando <code>peaceiris/actions-gh-pages@v3</code>.</li>
+</ul>
+<pre><code class="language-yaml">name: Generar Documentación MkDocs
+
+on:
+  push:
+    branches: [ &quot;main&quot; ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      - run: pip install mkdocs mkdocs-material
+      - run: mkdocs build
+      - uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./site
+</code></pre>
+<h2 id="verificacion">Verificación</h2>
+<p>Ruta:</p>
+<pre><code>https://vjp-jeronimogrc.github.io/PPS-Unidad0-Tarea-Jeronimo/
+</code></pre></div>
             </div>
         </div>
 
