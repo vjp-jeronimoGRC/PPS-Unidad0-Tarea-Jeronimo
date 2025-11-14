@@ -178,3 +178,41 @@ Como resultado podremos visualizar lo siguiente:
 
 En Github nos vamos a Settings > Pages y seleccionamos Source: GitHub Actions
 
+## 2. Workflow
+- Archivo: `.github/workflows/CreacionDocumentacion.yml`
+- Configuración principal:
+  - Se ejecuta en **push** a `main`.
+  - Instala Python 3.10 y MkDocs con el tema Material.
+  - Construye la documentación (`mkdocs build`).
+  - Publica los archivos generados en la rama `gh-pages` usando `peaceiris/actions-gh-pages@v3`.
+
+```yaml
+name: Generar Documentación MkDocs
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      - run: pip install mkdocs mkdocs-material
+      - run: mkdocs build
+      - uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./site
+```
+## Verificación
+
+Ruta:
+
+```
+https://vjp-jeronimogrc.github.io/PPS-Unidad0-Tarea-Jeronimo/
+```
+

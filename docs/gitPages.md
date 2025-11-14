@@ -14,8 +14,13 @@ La nueva rama será:
 gh-pages
 ```
 
-## Ruta
+## Trabajar la rama gh-pages
+- El workflow de GitHub Actions genera automáticamente la rama `gh-pages`.
+- Esta rama contiene todos los archivos de la documentación
+
+## Ruta de comprobación
 
 ```
 https://vjp-jeronimoGRC.github.io/PPS-Unidad0-Tarea-Jeronimo
 ```
+[imagen]('Captura de pantalla 2025-11-14 011930.png')
