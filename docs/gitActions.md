@@ -171,7 +171,7 @@ mkdocs serve
 ```
 Como resultado podremos visualizar lo siguiente:
 
-![imagen mkdocs](images/'Captura de pantalla 2025-11-13 231351.png')
+![imagen mkdocs](images/Captura_de_pantalla_2025-11-13_231351.png)
 
 
 ## gh-pages
