@@ -23,4 +23,4 @@ gh-pages
 ```
 https://vjp-jeronimoGRC.github.io/PPS-Unidad0-Tarea-Jeronimo
 ```
-![imagen]('Captura de pantalla 2025-11-14 011930.png')
+![imagen](Captura de pantalla 2025-11-14 011930.png)
