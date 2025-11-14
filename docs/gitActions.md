@@ -227,5 +227,5 @@ docker run -d \
   -v $(pwd):/usr/share/nginx/html:ro \
   nginx
 ```
-
+Tambien para poder ver información del contenedor introducimos el siguiente comando: `docker inspect PPSUnidad0-Tarea_Jeronimo`
 
