@@ -25,9 +25,28 @@
         <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
             <div class="container">
                 <a class="navbar-brand" href="..">Calculadora Python</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
                 <!-- Expanded navigation -->
                 <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href=".." class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../docker/" class="nav-link">Docker</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../git/" class="nav-link">Git-Repository</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../gitPages/" class="nav-link">GitHub-Pages</a>
+                            </li>
+                        </ul>
 
                     <ul class="nav navbar-nav ms-md-auto">
                         <li class="nav-item">
@@ -86,6 +105,27 @@
             <li class="nav-item" data-bs-level="1"><a href="#creacion-del-workflow-de-github-actions" class="nav-link">Creación del Workflow de Github Actions</a>
               <ul class="nav flex-column">
             <li class="nav-item" data-bs-level="2"><a href="#gh-pages" class="nav-link">gh-pages</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#workflow" class="nav-link">Workflow</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#verificacion" class="nav-link">Verificación</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#contenedor-docker-nginx" class="nav-link">Contenedor Docker NGINX</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#objetivo" class="nav-link">Objetivo</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#comando-utilizado" class="nav-link">Comando utilizado</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -250,9 +290,52 @@ mkdocs serve
 
 </code></pre>
 <p>Como resultado podremos visualizar lo siguiente:</p>
-<p><img alt="imagen mkdocs" src="/home/kali/PPS-Unidad0-Tarea-Jeronimo/" title="Captura de pantalla 2025-11-13 231351.png" /></p>
+<p><img alt="imagen mkdocs" src="../images/Captura_de_pantalla_2025-11-13_231351.png" /></p>
 <h2 id="gh-pages">gh-pages</h2>
-<p>En Github nos vamos a Settings &gt; Pages y seleccionamos Source: GitHub Actions</p></div>
+<p>En Github nos vamos a Settings &gt; Pages y seleccionamos Source: GitHub Actions</p>
+<h2 id="workflow">Workflow</h2>
+<ul>
+<li>Archivo: <code>.github/workflows/CreacionDocumentacion.yml</code></li>
+<li>Configuración principal:</li>
+<li>Se ejecuta en <strong>push</strong> a <code>main</code>.</li>
+<li>Instala Python 3.10 y MkDocs con el tema Material.</li>
+<li>Construye la documentación (<code>mkdocs build</code>).</li>
+<li>Publica los archivos generados en la rama <code>gh-pages</code> usando <code>peaceiris/actions-gh-pages@v3</code>.</li>
+</ul>
+<pre><code class="language-yaml">name: Generar Documentación MkDocs
+
+on:
+  push:
+    branches: [ &quot;main&quot; ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      - run: pip install mkdocs mkdocs-material
+      - run: mkdocs build
+      - uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./site
+</code></pre>
+<h2 id="verificacion">Verificación</h2>
+<p>Ruta: <code>https://vjp-jeronimogrc.github.io/PPS-Unidad0-Tarea-Jeronimo/</code></p>
+<h1 id="contenedor-docker-nginx">Contenedor Docker NGINX</h1>
+<h2 id="objetivo">Objetivo</h2>
+<p>Levantar un contenedor NGINX para servir la documentación generada por MkDocs desde la rama <code>gh-pages</code>. Aunque la web ya está publicada en GitHub Pages, este ejercicio permite practicar Docker y volúmenes bind mount.</p>
+<h2 id="comando-utilizado">Comando utilizado</h2>
+<pre><code class="language-bash">docker run -d \
+  --name PPSUnidad0-Tarea_Jeronimo \
+  -p 8085:80 \
+  -v $(pwd):/usr/share/nginx/html:ro \
+  nginx
+</code></pre>
+<p>Tambien para poder ver información del contenedor introducimos el siguiente comando: <code>docker inspect PPSUnidad0-Tarea_Jeronimo</code></p></div>
             </div>
         </div>
 

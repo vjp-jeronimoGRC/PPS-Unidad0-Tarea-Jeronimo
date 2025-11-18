@@ -25,9 +25,28 @@
         <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
             <div class="container">
                 <a class="navbar-brand" href=".">Calculadora Python</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
                 <!-- Expanded navigation -->
                 <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="." class="nav-link active" aria-current="page">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="docker/" class="nav-link">Docker</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="git/" class="nav-link">Git-Repository</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="gitPages/" class="nav-link">GitHub-Pages</a>
+                            </li>
+                        </ul>
 
                     <ul class="nav navbar-nav ms-md-auto">
                         <li class="nav-item">
@@ -35,6 +54,16 @@
                                 <i class="fa fa-search"></i> Search
                             </a>
                         </li>
+                            <li class="nav-item">
+                                <a rel="prev" class="nav-link disabled">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="docker/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
                     </ul>
                 </div>
             </div>
@@ -67,6 +96,14 @@
               <ul class="nav flex-column">
               </ul>
             </li>
+            <li class="nav-item" data-bs-level="2"><a href="#licencia" class="nav-link">Licencia</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#enlaces-de-documentacion" class="nav-link">Enlaces de documentación</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
               </ul>
             </li>
         </ul>
@@ -83,8 +120,16 @@
 <h2 id="requisitos">Requisitos</h2>
 <ul>
 <li>Python 3.x</li>
-<li>Tkinter
-<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Licencia: CC BY-NC-SA 4.0" src="https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png" /></a></li>
+<li>Tkinter</li>
+</ul>
+<h2 id="licencia">Licencia</h2>
+<p><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Licencia: CC BY-NC-SA 4.0" src="https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png" /></a></p>
+<h2 id="enlaces-de-documentacion">Enlaces de documentación</h2>
+<ul>
+<li><a href="https://github.com/vjp-jeronimoGRC/PPS-Unidad0-Tarea-Jeronimo/blob/main/docs/docker.md">Docker</a></li>
+<li><a href="https://github.com/vjp-jeronimoGRC/PPS-Unidad0-Tarea-Jeronimo/blob/main/docs/gitPages.md">GH-Pages</a> </li>
+<li><a href="https://github.com/vjp-jeronimoGRC/PPS-Unidad0-Tarea-Jeronimo/blob/main/docs/git.md">Git Repository</a></li>
+<li><a href="https://github.com/vjp-jeronimoGRC/PPS-Unidad0-Tarea-Jeronimo/blob/main/docs/gitActions.md">Git Actions</a></li>
 </ul></div>
             </div>
         </div>
@@ -167,5 +212,5 @@
 
 <!--
 MkDocs version : 1.6.1
-Build Date UTC : 2025-11-13 22:59:22.272453+00:00
+Build Date UTC : 2025-11-18 22:15:15.477315+00:00
 -->

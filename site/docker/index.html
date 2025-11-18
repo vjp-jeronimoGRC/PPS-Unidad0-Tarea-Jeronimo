@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../img/favicon.ico">
-        <title>GitHub-Pages - Calculadora Python</title>
+        <title>Docker - Calculadora Python</title>
         <link href="../css/bootstrap.min.css" rel="stylesheet">
         <link href="../css/fontawesome.min.css" rel="stylesheet">
         <link href="../css/brands.min.css" rel="stylesheet">
@@ -38,13 +38,13 @@
                                 <a href=".." class="nav-link">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a href="../docker/" class="nav-link">Docker</a>
+                                <a href="./" class="nav-link active" aria-current="page">Docker</a>
                             </li>
                             <li class="nav-item">
                                 <a href="../git/" class="nav-link">Git-Repository</a>
                             </li>
                             <li class="nav-item">
-                                <a href="./" class="nav-link active" aria-current="page">GitHub-Pages</a>
+                                <a href="../gitPages/" class="nav-link">GitHub-Pages</a>
                             </li>
                         </ul>
 
@@ -55,12 +55,12 @@
                             </a>
                         </li>
                             <li class="nav-item">
-                                <a rel="prev" href="../git/" class="nav-link">
+                                <a rel="prev" href=".." class="nav-link">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a rel="next" class="nav-link disabled">
+                                <a rel="next" href="../git/" class="nav-link">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -82,23 +82,20 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-light">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-bs-level="2"><a href="#configuracion-del-github-pages" class="nav-link">Configuración del GitHub Pages</a>
+            <li class="nav-item" data-bs-level="1"><a href="#contenedor-nginx-para-la-documentacion-de-la-tarea" class="nav-link">Contenedor NGINX para la documentación de la tarea</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#objetivo" class="nav-link">Objetivo</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            
-            <li class="nav-item" data-bs-level="2"><a href="#creacion-automatica-de-la-rama-gh-pages" class="nav-link">Creacion automática de la rama gh-pages</a>
+            <li class="nav-item" data-bs-level="2"><a href="#comando-utilizado" class="nav-link">Comando utilizado</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            
-            <li class="nav-item" data-bs-level="2"><a href="#trabajar-la-rama-gh-pages" class="nav-link">Trabajar la rama gh-pages</a>
+            <li class="nav-item" data-bs-level="2"><a href="#ruta-de-conexion-del-despliegue-de-docker" class="nav-link">Ruta de conexión del despliegue de Docker</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            
-            <li class="nav-item" data-bs-level="2"><a href="#ruta-de-comprobacion" class="nav-link">Ruta de comprobación</a>
-              <ul class="nav flex-column">
               </ul>
             </li>
         </ul>
@@ -106,23 +103,22 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h2 id="configuracion-del-github-pages">Configuración del GitHub Pages</h2>
-<p>Para publicar la documentación, voy a Settings &gt; Pages y selecciono:</p>
-<pre><code>Source: GitHub Actions
+<h1 id="contenedor-nginx-para-la-documentacion-de-la-tarea">Contenedor NGINX para la documentación de la tarea</h1>
+<h2 id="objetivo">Objetivo</h2>
+<p>Levantar un contenedor NGINX para servir la documentación generada por MkDocs desde la rama <code>gh-pages</code>.</p>
+<h2 id="comando-utilizado">Comando utilizado</h2>
+<pre><code class="language-bash">docker run -d \
+  --name PPSUnidad0-Tarea_Jeronimo \
+  -p 8085:80 \
+  -v $(pwd):/usr/share/nginx/html:ro \
+  nginx
+
 </code></pre>
-<h2 id="creacion-automatica-de-la-rama-gh-pages">Creacion automática de la rama gh-pages</h2>
-<p>La nueva rama será:</p>
-<pre><code>gh-pages
+<h2 id="ruta-de-conexion-del-despliegue-de-docker">Ruta de conexión del despliegue de Docker</h2>
+<pre><code>http://localhost:8085
 </code></pre>
-<h2 id="trabajar-la-rama-gh-pages">Trabajar la rama gh-pages</h2>
-<ul>
-<li>El workflow de GitHub Actions genera automáticamente la rama <code>gh-pages</code>.</li>
-<li>Esta rama contiene todos los archivos de la documentación</li>
-</ul>
-<h2 id="ruta-de-comprobacion">Ruta de comprobación</h2>
-<pre><code>https://vjp-jeronimoGRC.github.io/PPS-Unidad0-Tarea-Jeronimo
-</code></pre>
-<p><img alt="imagen" src="../images/gitPages_captura.png" /></p></div>
+<p>[<img alt="despliegue_docker" src="../images/docker.png" /></p>
+<p>[<img alt="docker inspect" src="../images/inspect.png" /></p></div>
             </div>
         </div>
 
