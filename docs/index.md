@@ -21,7 +21,7 @@ Ejecuta el script `calculator/gui.py` para iniciar la calculadora.
 
 ## Enlaces de documentación
 
-- [Docker](docs/docker.md)
-- [GH-Pages](docs/gitPages.md) 
-- [Git Repository](docs/git.md)
-- [Git Actions](docs/gitActions.md)
+- [Docker](https://github.com/vjp-jeronimoGRC/PPS-Unidad0-Tarea-Jeronimo/blob/main/docs/docker.md)
+- [GH-Pages](https://github.com/vjp-jeronimoGRC/PPS-Unidad0-Tarea-Jeronimo/blob/main/docs/gitPages.md) 
+- [Git Repository](https://github.com/vjp-jeronimoGRC/PPS-Unidad0-Tarea-Jeronimo/blob/main/docs/git.md)
+- [Git Actions](https://github.com/vjp-jeronimoGRC/PPS-Unidad0-Tarea-Jeronimo/blob/main/docs/gitActions.md)
