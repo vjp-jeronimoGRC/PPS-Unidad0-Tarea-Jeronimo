@@ -1,4 +1,8 @@
 site_name: Calculadora Python
 nav:
   - Home: index.md
+  - Docker: docker.md
+  - Git-Repository: git.md
+  - GitHub-Pages: gitPages.md
+
 docs_dir: docs
