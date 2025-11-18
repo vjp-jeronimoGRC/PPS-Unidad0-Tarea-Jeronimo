@@ -21,7 +21,7 @@ Ejecuta el script `calculator/gui.py` para iniciar la calculadora.
 
 ## Enlaces de documentación
 
-- [Docker](/docker)
-- [GH-Pages](/gitPages) 
-- [Git Repository](/git)
-- [Git Actions](/gitActions)
+- [Docker](docker/)
+- [GH-Pages](gitPages/)
+- [Git Repository](git/)
+- [Git Actions](gitActions/)
