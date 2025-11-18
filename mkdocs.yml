@@ -4,5 +4,5 @@ nav:
   - Docker: docker.md
   - Git-Repository: git.md
   - GitHub-Pages: gitPages.md
-
+  - Git-Actions: gitActions.md
 docs_dir: docs
